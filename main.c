@@ -28,7 +28,7 @@ size_t cmdinlen = 0;
 ssize_t lineinput;
 unsigned int line_num = 0;
 stack_t *stack = NULL;
-glob.nod_num = 1;
+glob.struc_type = 1;
 while (1)
 {
 lineinput = getline(&cmdin, &cmdinlen, fd);
@@ -69,6 +69,16 @@ if (instruct.opcode == NULL || instruct.opcode[0] == '#')
 return;
 if (!strcmp(instruct.opcode, "nop"))
 return;
+if (!strcmp(instruct.opcode, "stack"))
+{
+glob.struc_type = 1;
+return;
+}
+if (!strcmp(instruct.opcode, "queue"))
+{
+glob.struc_type = 0;
+return;
+}
 instruct.f = opcode_exec(instruct.opcode);
 if (instruct.f == NULL)
 {

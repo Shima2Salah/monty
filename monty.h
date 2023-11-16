@@ -36,8 +36,8 @@ char *opcode;
 void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
- * struct argument - save arguments in node
- * @nod_num: integer
+ * struct argument - represent stack or queue
+ * @struc_type: integer for stack or queue
  * @arg: points to aruments to be used in node
  *
  * Description: save arguments in node
@@ -45,7 +45,7 @@ void (*f)(stack_t **stack, unsigned int line_number);
  */
 typedef struct argument
 {
-int nod_num;
+int struc_type;
 char *arg;
 } argument_t;
 argument_t glob;
