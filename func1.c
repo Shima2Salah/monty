@@ -40,15 +40,3 @@ temp = (*stack)->n;
 (*stack)->n = (*stack)->next->n;
 (*stack)->next->n = temp;
 }
-/**
- * add - sum two elemnts at stack top
- * @stack: pointer to stack
- * @line_number: line_number in code
- */
-void add(stack_t **stack, unsigned int line_number)
-{
-if (*stack == NULL || (*stack)->next == NULL)
-lineerr(5, line_number);
-(*stack)->next->n += (*stack)->n;
-pop(stack, line_number);
-}

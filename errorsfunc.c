@@ -47,6 +47,18 @@ else if (err == 4)
 fprintf(stderr, "L%u: can't swap, stack too short\n", line_num);
 else if (err == 5)
 fprintf(stderr, "L%u: can't add, stack too short\n", line_num);
+else if (err == 6)
+fprintf(stderr, "L%u: can't sub, stack too short\n", line_num);
+else if (err == 7)
+fprintf(stderr, "L%u: can't div, stack too short\n", line_num);
+else if (err == 8)
+fprintf(stderr, "L%u: division by zero\n", line_num);
+else if (err == 9)
+fprintf(stderr, "L%u: can't mul, stack too short\n", line_num);
+else if (err == 10)
+fprintf(stderr, "L%u: can't mod, stack too short\n", line_num);
+else if (err == 11)
+fprintf(stderr, "L%u: division by zero\n", line_num);
 exit(EXIT_FAILURE);
 }
 
