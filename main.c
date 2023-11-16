@@ -26,7 +26,7 @@ void input_file(FILE *fd)
 char *cmdin = NULL;
 size_t cmdinlen = 0;
 ssize_t lineinput;
-unsigned int line_num = 1;
+unsigned int line_num = 0;
 stack_t *stack = NULL;
 glob.nod_num = 1;
 while (1)
