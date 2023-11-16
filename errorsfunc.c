@@ -31,12 +31,22 @@ fprintf(stderr, "L%u: unknown instruction %s\n", line_num, monstr);
 exit(EXIT_FAILURE);
 }
 /**
- * pusherr - functn to print errors
+ * lineerr - functn to print errors
+ * @err: integer represent error
  * @line_num: line_number in code
  */
-void pusherr(unsigned int line_num)
+void lineerr(int err, unsigned int line_num)
 {
+if (err == 1)
 fprintf(stderr, "L%u: usage: push integer\n", line_num);
+else if (err == 2)
+fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
+else if (err == 3)
+fprintf(stderr, "L%u: can't pop an empty stack\n", line_num);
+else if (err == 4)
+fprintf(stderr, "L%u: can't swap, stack too short\n", line_num);
+else if (err == 5)
+fprintf(stderr, "L%u: can't add, stack too short\n", line_num);
 exit(EXIT_FAILURE);
 }
 

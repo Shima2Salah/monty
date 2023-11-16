@@ -6,6 +6,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <sys/types.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -49,14 +50,19 @@ char *arg;
 } argument_t;
 argument_t glob;
 extern stack_t *stack;
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
 void (*opcode_exec(char *opcode))(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void input_file(FILE *fd);
 void str_token(char *cmdin, unsigned int line_num, stack_t **stack, FILE *fd);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void myerror(int err);
 void nofilerr(char *argv);
-void pusherr(unsigned int line_num);
+void lineerr(int err, unsigned int line_num);
 void instructerr(unsigned int line_num, char *monstr);
 #endif

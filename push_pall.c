@@ -8,7 +8,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 stack_t *nod;
 if (glob.arg == NULL || !isdigit(*glob.arg))
-pusherr(line_number);
+lineerr(1, line_number);
 nod = malloc(sizeof(stack_t));
 if (nod == NULL)
 myerror(1);
