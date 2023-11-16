@@ -38,12 +38,16 @@ if (lineinput == -1)
 if (feof(fd))
 {
 free(cmdin);
-exit(0);
+free_stack(stack);
+fclose(fd);
+exit(EXIT_SUCCESS);
 }
 else
 {
 free(cmdin);
-exit(1);
+free_stack(stack);
+fclose(fd);
+exit(EXIT_FAILURE);
 }
 }
 line_num++;
