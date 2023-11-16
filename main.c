@@ -67,6 +67,8 @@ instruction_t instruct;
 instruct.opcode = strtok(cmdin, " \t\n");
 if (instruct.opcode == NULL || instruct.opcode[0] == '#')
 return;
+if (!strcmp(instruct.opcode, "nop"))
+return;
 instruct.f = opcode_exec(instruct.opcode);
 if (instruct.f == NULL)
 {

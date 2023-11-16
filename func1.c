@@ -52,16 +52,3 @@ lineerr(5, line_number);
 (*stack)->next->n += (*stack)->n;
 pop(stack, line_number);
 }
-/**
- * nop - func not do any thing
- * @stack: pointer to stack
- * @line_number: line_number in code
- */
-void nop(stack_t **stack, unsigned int line_number)
-{
-(void)stack;
-(void)line_number;
-}
-
-
-
