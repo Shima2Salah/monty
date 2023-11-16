@@ -59,6 +59,10 @@ else if (err == 10)
 fprintf(stderr, "L%u: can't mod, stack too short\n", line_num);
 else if (err == 11)
 fprintf(stderr, "L%u: division by zero\n", line_num);
+else if (err == 12)
+fprintf(stderr, "L%u: can't pchar, stack empty\n", line_num);
+else if (err == 13)
+fprintf(stderr, "L%u: can't pchar, value out of range\n", line_num);
 exit(EXIT_FAILURE);
 }
 
