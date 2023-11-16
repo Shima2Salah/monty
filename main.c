@@ -28,7 +28,6 @@ size_t cmdinlen = 0;
 ssize_t lineinput;
 unsigned int line_num = 0;
 stack_t *stack = NULL;
-instruction_t instruct;
 glob.nod_num = 1;
 while (1)
 {
@@ -51,21 +50,34 @@ exit(EXIT_FAILURE);
 }
 }
 line_num++;
+str_token(cmdin, line_num, &stack, fd);
+}
+}
+
+/**
+ * str_token - functn to tokenize opcodes
+ * @cmdin: opcode input
+ * @line_num: line_number in code
+ * @stack: pointer to stack
+ * @fd: file descripitor
+ */
+void str_token(char *cmdin, unsigned int line_num, stack_t **stack, FILE *fd)
+{
+instruction_t instruct;
 instruct.opcode = strtok(cmdin, " \t\n");
 if (instruct.opcode == NULL || instruct.opcode[0] == '#')
-continue;
+return;
 instruct.f = opcode_exec(instruct.opcode);
 if (instruct.f == NULL)
 {
 instructerr(line_num, instruct.opcode);
 free(cmdin);
-free_stack(stack);
+free_stack(*stack);
 fclose(fd);
 exit(EXIT_FAILURE);
 }
 glob.arg = strtok(NULL, " \t\n");
-instruct.f(&stack, line_num);
-}
+instruct.f(stack, line_num);
 }
 
 /**

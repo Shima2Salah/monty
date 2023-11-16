@@ -54,6 +54,7 @@ void pall(stack_t **stack, unsigned int line_number);
 void (*opcode_exec(char *opcode))(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void input_file(FILE *fd);
+void str_token(char *cmdin, unsigned int line_num, stack_t **stack, FILE *fd);
 void myerror(int err);
 void nofilerr(char *argv);
 void pusherr(unsigned int line_num);
